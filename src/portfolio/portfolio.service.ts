@@ -16,7 +16,6 @@ import { isZero } from '@seongeun/aggregator-util/lib/bignumber';
 import { divideDecimals } from '@seongeun/aggregator-util/lib/decimals';
 import { IFullFilled } from './portfolio.interface';
 
-
 @Injectable()
 export class PortfolioService {
   constructor(
@@ -51,7 +50,7 @@ export class PortfolioService {
     }
   }
 
-  // evm 자산 추적
+  // EVM 체인 자산 추적
   private async _balanceOfInEVM(address: string, tokens: Token[]) {
     const groupByNetwork = groupBy(tokens, 'network.chainKey');
 
@@ -82,7 +81,7 @@ export class PortfolioService {
     );
   }
 
-  // terra 자산 추적
+  // TERRA 체인 자산 추적
   private _balanceOfInTerra(address: string, tokens: Token[]) {
     return;
   }
