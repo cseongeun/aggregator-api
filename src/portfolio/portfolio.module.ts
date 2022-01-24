@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { PortfolioService } from './portfolio.service';
 import { PortfolioController } from './portfolio.controller';
-import { InteractionModule, TokenModule } from '@seongeun/aggregator-base';
+import { NetworkModule, TokenModule } from '@seongeun/aggregator-base/lib';
+import { AddressInteractionModule } from '../address-interaction/address-interaction.module';
 
 @Module({
-  imports: [InteractionModule, TokenModule],
+  imports: [NetworkModule, TokenModule, AddressInteractionModule],
   providers: [PortfolioService],
   controllers: [PortfolioController],
 })

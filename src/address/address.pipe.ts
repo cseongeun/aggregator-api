@@ -6,17 +6,21 @@ import { EXCEPTION_CODE } from '../app/exception/exception.constant';
 import { Exception } from '../app/exception/request.exception';
 import { AddressDetail } from './address.dto';
 
+/**
+ * 인풋 (주소) => 아웃풋 (주소, 체인타입)
+ */
 @Injectable()
 export class AddressParamPipe implements PipeTransform {
-  transform(value: string): AddressDetail {
+  transform(value: Record<string, string>): AddressDetail {
+    const address = value?.address;
     // EVM
-    if (isAddress(value)) {
-      return { address: value, chainType: NETWORK_CHAIN_TYPE.EVM };
+    if (isAddress(address)) {
+      return { address, chainType: NETWORK_CHAIN_TYPE.EVM };
     }
 
     // TERRA
-    if (isValidate(value)) {
-      return { address: value, chainType: NETWORK_CHAIN_TYPE.TERRA };
+    if (isValidate(address)) {
+      return { address, chainType: NETWORK_CHAIN_TYPE.TERRA };
     }
 
     throw new Exception(EXCEPTION_CODE.ERR0002, HttpStatus.BAD_REQUEST);

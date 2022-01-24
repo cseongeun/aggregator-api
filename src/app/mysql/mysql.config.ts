@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
-import { typeOrmConfig } from '@seongeun/aggregator-base';
+import { typeOrmConfig } from '@seongeun/aggregator-base/lib';
 
 export class MysqlConfig implements TypeOrmOptionsFactory {
   createTypeOrmOptions(): TypeOrmModuleOptions {
