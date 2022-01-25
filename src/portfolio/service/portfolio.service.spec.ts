@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common';
 import { NETWORK_CHAIN_TYPE } from '@seongeun/aggregator-base/lib';
-import { TestModule } from '../app/test/test.mdoule';
-import { PortfolioService } from './portfolio.service';
+import { TestModule } from '../../app/test/test.mdoule';
+import { PortfolioService } from './portfolio.asset.service';
 
 describe('PortfolioService', () => {
   const testModule = new TestModule();
